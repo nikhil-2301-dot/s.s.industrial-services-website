@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S. S. Industrial Services | Chlorine Gas & Industrial Chlorination Systems</title>
+    
+    <!-- Google Fonts for premium typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* =========================================================
+           CSS VARIABLES 
+           ========================================================= */
+        :root {
+            --primary-dark: #406093;
+            --primary-light: #4C8CE4;
+            --accent-green: #91D06C;
+            --accent-yellow: #FFF799;
+            --text-dark: #2C3E50;
+            --text-light: #F8F9FA;
+            --bg-light: #F4F7FA;
+            --white: #FFFFFF;
+        }
+
+        /* =========================================================
+           RESET & BASE STYLES
+           ========================================================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        /* =========================================================
+           BUTTONS & CTAs
+           ========================================================= */
+        .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-dark);
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(64, 96, 147, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-light);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(76, 140, 228, 0.4);
+            color: var(--white);
+        }
+
+        .btn-accent {
+            background-color: var(--accent-yellow);
+            color: var(--primary-dark);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-accent:hover {
+            background-color: var(--accent-green);
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(145, 208, 108, 0.4);
+        }
+
+        /* =========================================================
+           HEADER / NAVIGATION
+           ========================================================= */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--primary-dark);
+            font-weight: 800;
+            font-size: 1.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .logo img {
+            height: 45px;
+            width: 45px;
+            margin-right: 12px;
+            background-color: var(--bg-light);
+            border-radius: 4px;
+            object-fit: cover;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--accent-green);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-light);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* =========================================================
+           HERO SECTION
+           ========================================================= */
+        .hero {
+            margin-top: 77px;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, rgba(64, 96, 147, 0.85) 100%), url('https://dummyimage.com/1920x1080/406093/ffffff&text=Industrial+Facility+Background') no-repeat center center/cover;
+            color: var(--white);
+            padding: 8rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            max-width: 900px;
+            margin: 0 auto 1.5rem auto;
+            line-height: 1.2;
+            animation: fadeDown 1s ease forwards;
+            opacity: 0;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto 2.5rem auto;
+            font-weight: 300;
+            color: var(--text-light);
+            animation: fadeUp 1s ease 0.3s forwards;
+            opacity: 0;
+        }
+
+        .hero .btn-group {
+            animation: fadeIn 1s ease 0.6s forwards;
+            opacity: 0;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        /* =========================================================
+           GLOBAL SECTION STYLES
+           ========================================================= */
+        section {
+            padding: 5rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--primary-dark);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-green);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        /* =========================================================
+           ABOUT US SECTION
+           ========================================================= */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            color: var(--primary-light);
+            font-size: 1.8rem;
+        }
+
+        .about-details {
+            background-color: var(--bg-light);
+            padding: 2.5rem;
+            border-radius: 12px;
+            border-left: 6px solid var(--accent-green);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            transition: transform 0.3s ease;
+        }
+
+        .about-details:hover {
+            transform: translateY(-5px);
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+
+        .detail-row strong {
+            color: var(--primary-dark);
+        }
+
+        /* =========================================================
+           PRODUCTS / SERVICES SECTION
+           ========================================================= */
+        .products {
+            background-color: var(--bg-light);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            border: 1px solid transparent;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(64, 96, 147, 0.1);
+            border-color: var(--primary-light);
+        }
+
+        .product-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-bottom: 3px solid var(--accent-yellow);
+        }
+
+        .product-content {
+            padding: 2rem;
+        }
+
+        .product-title {
+            color: var(--primary-dark);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .badge {
+            background-color: var(--bg-light);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-weight: 600;
+            color: var(--primary-light);
+        }
+
+        /* =========================================================
+           OUR CLIENTS MARQUEE SECTION
+           ========================================================= */
+        .clients {
+            background-color: var(--white);
+            overflow: hidden; /* Prevents unwanted horizontal scrolling on the page */
+        }
+
+        .clients-marquee-container {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            padding: 1rem 0;
+        }
+
+        .clients-track {
+            display: flex;
+            width: max-content;
+            gap: 4rem;
+            align-items: center;
+            /* Move from left to right endlessly */
+            animation: marqueeLTR 25s linear infinite;
+        }
+
+        /* Pauses the scrolling when the user hovers over the logos */
+        .clients-track:hover {
+            animation-play-state: paused;
+        }
+
+        .client-card {
+            text-align: center;
+            width: 150px;
+            transition: transform 0.3s ease;
+        }
+
+        .client-card:hover {
+            transform: scale(1.05);
+        }
+
+        .client-logo {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+            background-color: var(--bg-light);
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            padding: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .client-name {
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 1rem;
+        }
+
+        /* =========================================================
+           BOTTOM CTA SECTION
+           ========================================================= */
+        .cta-banner {
+            background-color: var(--primary-dark);
+            color: var(--white);
+            text-align: center;
+            padding: 5rem 2rem;
+            background-image: linear-gradient(45deg, var(--primary-dark) 0%, var(--primary-light) 100%);
+        }
+
+        .cta-banner h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* =========================================================
+           FOOTER
+           ========================================================= */
+        footer {
+            background-color: #1A2530;
+            color: #A0B2C6;
+            padding: 4rem 2rem 2rem;
+            font-size: 0.95rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-col h4 {
+            color: var(--accent-yellow);
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col a {
+            color: #A0B2C6;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: var(--accent-green);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 3rem auto 0;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        /* =========================================================
+           ANIMATIONS (Keyframes)
+           ========================================================= */
+        @keyframes fadeDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        /* The Left-to-Right Marquee Animation */
+        @keyframes marqueeLTR {
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(0); }
+        }
+
+        /* =========================================================
+           RESPONSIVE DESIGN
+           ========================================================= */
+        @media (max-width: 900px) {
+            .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .hero h1 { font-size: 2.5rem; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero { padding: 5rem 1rem; }
+            .hero .btn-group { flex-direction: column; }
+            .section-title { font-size: 2rem; }
+
+            /* Make chat widget responsive */
+            .chat-window {
+                width: calc(100% - 40px);
+                right: 20px;
+                bottom: 100px;
+            }
+        }
+
+        /* =========================================================
+           CHATBOT UI STYLES
+           ========================================================= */
+        .chat-widget-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 65px;
+            height: 65px;
+            background-color: var(--primary-dark);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 9999;
+            transition: transform 0.3s ease;
+            border: none;
+        }
+
+        .chat-widget-btn:hover {
+            transform: scale(1.05);
+            background-color: var(--primary-light);
+        }
+
+        .chat-window {
+            position: fixed;
+            bottom: 110px;
+            right: 30px;
+            width: 350px;
+            height: 480px;
+            background-color: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            display: flex;
+            flex-direction: column;
+            z-index: 9999;
+            overflow: hidden;
+            transform: scale(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease;
+        }
+
+        .chat-window.active {
+            transform: scale(1);
+        }
+
+        .chat-header {
+            background-color: var(--primary-dark);
+            color: var(--white);
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .chat-close {
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 24px;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        .chat-messages {
+            flex-grow: 1;
+            padding: 15px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            background-color: var(--bg-light);
+        }
+
+        .chat-msg {
+            max-width: 85%;
+            padding: 10px 14px;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            line-height: 1.4;
+            word-wrap: break-word;
+        }
+
+        .msg-bot {
+            background-color: var(--white);
+            color: var(--text-dark);
+            align-self: flex-start;
+            border-bottom-left-radius: 2px;
+            border: 1px solid var(--border-color, #E2E8F0);
+        }
+
+        .msg-user {
+            background-color: var(--primary-light);
+            color: var(--white);
+            align-self: flex-end;
+            border-bottom-right-radius: 2px;
+        }
+
+        .chat-input-area {
+            display: flex;
+            padding: 12px;
+            border-top: 1px solid var(--border-color, #E2E8F0);
+            background-color: var(--white);
+        }
+
+        .chat-input {
+            flex-grow: 1;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            padding: 8px 15px;
+            outline: none;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .chat-input:focus {
+            border-color: var(--primary-light);
+        }
+
+        .chat-send-btn {
+            background-color: var(--accent-green);
+            color: var(--white);
+            border: none;
+            border-radius: 50%;
+            width: 38px;
+            height: 38px;
+            margin-left: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+            font-size: 16px;
+        }
+
+        .chat-send-btn:hover {
+            background-color: #247045;
+        }
+
+        .typing-indicator {
+            font-size: 0.8rem;
+            color: #888;
+            align-self: flex-start;
+            margin: 0 0 10px 15px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER (Multi-page navigation setup) -->
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="https://5.imimg.com/data5/SELLER/Logo/2025/8/538275960/TD/DL/BB/141208881/screenshot-20221219-111611-120x120.png" alt="S. S. Industrial Services Logo">
+                S. S. Industrial Services
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <h1>Reliable Chlorine Gas & Industrial Chlorination Systems</h1>
+        <p>Providing high-purity liquid chlorine, automated vacuum regulators, and industrial chemical solutions. Trusted by water treatment plants and manufacturing facilities across India.</p>
+        <div class="btn-group">
+            <a href="products.html" class="btn btn-accent">Explore Products</a>
+            <a href="contact.html" class="btn btn-primary">Request a Quote</a>
+        </div>
+    </section>
+
+    <!-- ABOUT US PREVIEW -->
+    <section class="container">
+        <h2 class="section-title">About S. S. Industrial Services</h2>
+        <div class="about-grid">
+            <div class="about-text">
+                <h3>Committed to Safety and Purity</h3>
+                <p>Based in Ludhiana, Punjab, <strong>S. S. Industrial Services</strong> is a trusted supplier of industrial chemicals and advanced chlorination solutions across India.</p>
+                <p>We specialize in high-purity Liquid Chlorine Gas, Vacuum Feed Gas Chlorinators, Automatic Vacuum Regulators, Poly Aluminium Chloride, and complete chlorinator accessories, installation, and repair services. Sourcing products from leading manufacturers such as Grasim, GACL, Bodal, Trimo, NEEL Chemical, and DCM Shriram, we ensure superior quality, safety, and reliability. Our commitment to timely delivery, technical expertise, and customer-focused service makes us a dependable partner for water treatment plants, industrial facilities, and chemical processing industries nationwide.</p>
+                <a href="about.html" class="btn btn-primary" style="margin-top: 1rem;">Read More About Us</a>
+            </div>
+            <div class="about-details">
+                <div class="detail-row">
+                    <strong>Company Name:</strong>
+                    <span>S. S. Industrial Services</span>
+                </div>
+                <div class="detail-row">
+                    <strong>Year Established:</strong>
+                    <span>2021</span>
+                </div>
+                <div class="detail-row">
+                    <strong>Nature of Business:</strong>
+                    <span>Service Provider & Wholesale Distributor</span>
+                </div>
+                <div class="detail-row">
+                    <strong>Email:</strong>
+                    <span><a href="mailto:ssindustrial88@gmail.com" style="color: var(--text-dark); text-decoration: none;">ssindustrial88@gmail.com</a></span>
+                </div>
+                <div class="detail-row">
+                    <strong>Contact No:</strong>
+                    <span>8800119890 | 8851555150</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCTS PREVIEW -->
+    <section class="products">
+        <div class="container">
+            <h2 class="section-title">Our Featured Products</h2>
+            <div class="product-grid">
+                
+                <!-- Product Card 1 -->
+                <div class="product-card">
+                    <img src="product_image/IMG-20260804-WA0011.jpg" alt="Liquid Chlorine Gas Cylinder" class="product-img">
+                    <div class="product-content">
+                        <div class="product-meta">
+                            <span class="badge">99.8% Purity</span>
+                            <span>High Pressure</span>
+                        </div>
+                        <h3 class="product-title">Liquid Chlorine Gas Cylinder</h3>
+                        <p>Ideal for water treatment plants and disinfection systems. High purity yellow gas storage with tonner capacities up to 900kg.</p>
+                        <a href="contact.html" class="btn btn-primary" style="width: 100%;">Enquire Now</a>
+                    </div>
+                </div>
+
+                <!-- Product Card 2 -->
+                <div class="product-card">
+                    <img src="product_image/IMG-20260804-WA0010.jpg" alt="Vacuum Feed Operated Chlorinator" class="product-img">
+                    <div class="product-content">
+                        <div class="product-meta">
+                            <span class="badge">Automated</span>
+                            <span>Floor/Wall Mount</span>
+                        </div>
+                        <h3 class="product-title">Vacuum Feed Gas Chlorinator</h3>
+                        <p>Provides accurate dosing of chlorine in drinking and industrial water. Equipped with vacuum/flow-controlled injection for reliable operation.</p>
+                        <a href="contact.html" class="btn btn-primary" style="width: 100%;">Enquire Now</a>
+                    </div>
+                </div>
+
+                <!-- Product Card 3 -->
+                <div class="product-card">
+                    <img src="product_image/IMG-20260804-WA0007.jpg" alt="Automatic Chlorine Leak Absorption System" class="product-img">
+                    <div class="product-content">
+                        <div class="product-meta">
+                            <span class="badge">Foolproof Safety</span>
+                            <span>Industrial Grade</span>
+                        </div>
+                        <h3 class="product-title">Automatic Vacuum Regulator</h3>
+                        <p>Ensures safe operation by preventing accidental chlorine gas flow without suction. Protects against pipe breakages and vacuum loss.</p>
+                        <a href="contact.html" class="btn btn-primary" style="width: 100%;">Enquire Now</a>
+                    </div>
+                </div>
+
+            </div>
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="products.html" class="btn btn-accent">View All Products</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- OUR CLIENTS SECTION -->
+    <section class="clients">
+        <h2 class="section-title" style="margin-bottom: 1rem;">Our Clients</h2>
+        <div class="clients-marquee-container">
+            <div class="clients-track">
+                
+                <!-- ORIGINAL SET OF CLIENTS -->
+                <div class="client-card">
+                    <img src="https://dummyimage.com/150x150/4C8CE4/ffffff&text=Logo" alt="Client 1 Logo" class="client-logo">
+                    <div class="client-name">Client Name 1</div>
+                </div>
+                <div class="client-card">
+                    <img src="https://dummyimage.com/150x150/4C8CE4/ffffff&text=Logo" alt="Client 2 Logo" class="client-logo">
+                    <div class="client-name">Client Name 2</div>
+                </div>
+                <div class="client-card">
+                    <img src="https://dummyimage.com/150x150/4C8CE4/ffffff&text=Logo" alt="Client 3 Logo" class="client-logo">
+                    <div class="client-name">Client Name 3</div>
+                </div>
+                <div class="client-card">
+                    <img src="https://dummyimage.com/150x150/4C8CE4/ffffff&text=Logo" alt="Client 4 Logo" class="client-logo">
+                    <div class="client-name">Client Name 4</div>
+                </div>
+                <div class="client-card">
+                    <img src="https://dummyimage.com/150x150/4C8CE4/ffffff&text=Logo" alt="Client 5 Logo" class="client-logo">
+                    <div class="client-name">Client Name 5</div>
+                </div>
+
+                <!-- DUPLICATED SET OF CLIENTS (Required for endless smooth loop) -->
+                <div class="client-card">
+                    <img src="https://dummyimage.com/150x150/4C8CE4/ffffff&text=Logo" alt="Client 1 Logo" class="client-logo">
+                    <div class="client-name">Client Name 1</div>
+                </div>
+                <div class="client-card">
+                    <img src="https://dummyimage.com/150x150/4C8CE4/ffffff&text=Logo" alt="Client 2 Logo" class="client-logo">
+                    <div class="client-name">Client Name 2</div>
+                </div>
+                <div class="client-card">
+                    <img src="https://dummyimage.com/150x150/4C8CE4/ffffff&text=Logo" alt="Client 3 Logo" class="client-logo">
+                    <div class="client-name">Client Name 3</div>
+                </div>
+                <div class="client-card">
+                    <img src="https://dummyimage.com/150x150/4C8CE4/ffffff&text=Logo" alt="Client 4 Logo" class="client-logo">
+                    <div class="client-name">Client Name 4</div>
+                </div>
+                <div class="client-card">
+                    <img src="https://dummyimage.com/150x150/4C8CE4/ffffff&text=Logo" alt="Client 5 Logo" class="client-logo">
+                    <div class="client-name">Client Name 5</div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- BOTTOM CTA -->
+    <section class="cta-banner">
+        <div class="container">
+            <h2>Ready to Secure Your Industrial Gas Supply?</h2>
+            <p style="margin-bottom: 2rem; font-size: 1.2rem;">Connect with our sales team for custom quotes, bulk orders, and technical installation requirements.</p>
+            <a href="contact.html" class="btn btn-accent" style="font-size: 1.2rem; padding: 16px 36px;">Contact Us Today</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>S. S. Industrial Services</h4>
+                <p>We are a leading distributor of Chlorine Gas, Industrial Chlorinators and all STP,WTP, ZLD chemicals in India, established in 2021.</p>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Contact Details</h4>
+                <ul>
+                    <li>📍 Ludhiana, Punjab, India</li>
+                    <li>📞 8800119890 | 8851555150</li>
+                    <li>✉️ <a href="mailto:ssindustrial88@gmail.com">ssindustrial88@gmail.com</a></li>
+                    <li>🏢 Mon - Sat: 9:00 AM - 6:00 PM</li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 S. S. Industrial Services. All Rights Reserved. | Designed for Industrial Excellence, by <a href="https://www.linkedin.com/in/nitin-pandey-a647aa320" target="_blank" rel="noopener noreferrer" style="color:#A0B2C6; text-decoration: none;">Nitin Pandey</a>.</p>
+        </div>
+    </footer>
+
+    <!-- CHATBOT WIDGET HTML -->
+    <button class="chat-widget-btn" onclick="toggleChat()">💬</button>
+
+    <div class="chat-window" id="chatWindow">
+        <div class="chat-header">
+            <span>S.S. Support Bot</span>
+            <button class="chat-close" onclick="toggleChat()">&times;</button>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+            <div class="chat-msg msg-bot">Hello! I am the S.S. Industrial Services virtual assistant. How can I help you today?</div>
+        </div>
+        <div class="typing-indicator" id="typingIndicator">Bot is typing...</div>
+        <div class="chat-input-area">
+            <input type="text" class="chat-input" id="chatInput" placeholder="Type a message..." onkeypress="handleKeyPress(event)">
+            <button class="chat-send-btn" onclick="sendMessage()">➤</button>
+        </div>
+    </div>
+
+    <!-- CHATBOT LOGIC -->
+    <script>
+        // Toggles the chat window open and closed
+        function toggleChat() {
+            const chatWindow = document.getElementById('chatWindow');
+            chatWindow.classList.toggle('active');
+        }
+
+        // Listens for the Enter key to send a message
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+
+        // Handles sending the message and getting a response
+        async function sendMessage() {
+            const inputField = document.getElementById('chatInput');
+            const messagesContainer = document.getElementById('chatMessages');
+            const typingIndicator = document.getElementById('typingIndicator');
+            const userText = inputField.value.trim();
+
+            if (!userText) return; // Stop if input is empty
+
+            // 1. Append User's Message to the Chat
+            const userMsgDiv = document.createElement('div');
+            userMsgDiv.className = 'chat-msg msg-user';
+            userMsgDiv.textContent = userText;
+            messagesContainer.appendChild(userMsgDiv);
+
+            // Clear input and scroll to bottom
+            inputField.value = '';
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+            // 2. Show "Typing..." indicator
+            typingIndicator.style.display = 'block';
+
+            try {
+                // =========================================================
+                // THIS IS WHERE YOUR CLOUDFLARE WORKER CONNECTION WILL GO
+                // =========================================================
+                const workerUrl = "https://your-chatbot-worker.yourdomain.workers.dev"; // Place actual URL here later
+
+                /*
+                // Real implementation logic (Commented out until your worker is ready):
+                const response = await fetch(workerUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ message: userText })
+                });
+                const data = await response.json();
+                const botReply = data.reply;
+                */
+
+                // Temporary Mock Delay (to simulate waiting for the AI)
+                await new Promise(r => setTimeout(r, 1200));
+
+                // Temporary Mock Response
+                const botReply = "Thanks for your message! This is a placeholder response. Once we connect this interface to your Cloudflare Worker, I will be able to answer your questions about our chlorine products.";
+
+                // 3. Append Bot's Response to the Chat
+                typingIndicator.style.display = 'none';
+                const botMsgDiv = document.createElement('div');
+                botMsgDiv.className = 'chat-msg msg-bot';
+                botMsgDiv.textContent = botReply;
+                messagesContainer.appendChild(botMsgDiv);
+
+                // Scroll to the newest message
+                messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            } catch (error) {
+                // Error Handling
+                typingIndicator.style.display = 'none';
+                const errorDiv = document.createElement('div');
+                errorDiv.className = 'chat-msg msg-bot';
+                errorDiv.style.color = 'red';
+                errorDiv.textContent = "Sorry, I'm having trouble connecting right now.";
+                messagesContainer.appendChild(errorDiv);
+            }
+        }
+    </script>
+</body>
+</html>

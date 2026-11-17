@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Products | S. S. Industrial Services</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* =========================================================
+           CSS VARIABLES 
+           ========================================================= */
+        :root {
+            --primary-dark: #406093;
+            --primary-light: #4C8CE4;
+            --accent-green: #2E8B57; 
+            --accent-yellow: #FFF799;
+            --text-dark: #2C3E50;
+            --text-light: #F8F9FA;
+            --bg-light: #F4F7FA;
+            --white: #FFFFFF;
+            --border-color: #E2E8F0;
+        }
+
+        /* =========================================================
+           RESET & BASE STYLES
+           ========================================================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.8;
+            background-color: var(--bg-light);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* Citation styling (muted so it doesn't break UI) */
+        .cite-tag {
+            font-size: 0.75rem;
+            color: #999;
+            font-weight: 300;
+            margin-left: 4px;
+        }
+
+        /* =========================================================
+           HEADER / NAVIGATION
+           ========================================================= */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            color: var(--primary-dark);
+            font-weight: 800;
+            font-size: 1.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .logo img {
+            height: 45px;
+            width: 45px;
+            margin-right: 12px;
+            background-color: var(--bg-light);
+            border-radius: 4px;
+            object-fit: cover;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a.active {
+            color: var(--primary-light);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--accent-green);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a.active::after, .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-light);
+        }
+
+        /* =========================================================
+           PAGE HERO SECTION
+           ========================================================= */
+        .page-hero {
+            margin-top: 77px;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, rgba(64, 96, 147, 0.9) 100%), url('https://dummyimage.com/1920x1080/406093/ffffff&text=Our+Products') no-repeat center center/cover;
+            color: var(--white);
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .page-hero h1 {
+            font-size: 3rem;
+            max-width: 900px;
+            margin: 0 auto 1rem auto;
+            animation: fadeIn 1s ease forwards;
+        }
+
+        .page-hero p {
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto;
+            font-weight: 300;
+            color: var(--accent-yellow);
+            animation: fadeIn 1s ease 0.3s forwards;
+            opacity: 0;
+        }
+
+        /* =========================================================
+           PRODUCT LIST LAYOUT 
+           ========================================================= */
+        .product-list-container {
+            max-width: 1100px;
+            margin: 4rem auto 6rem;
+            padding: 0 2rem;
+        }
+
+        .product-row {
+            display: flex;
+            gap: 2rem;
+            background: var(--white);
+            padding: 1.5rem;
+            margin-bottom: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-row:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            border-color: var(--primary-light);
+        }
+
+        .product-img-wrapper {
+            flex-shrink: 0;
+            width: 250px;
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border-radius: 6px;
+            background-color: var(--white);
+        }
+
+        .product-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-row:hover .product-img-wrapper img {
+            transform: scale(1.05);
+        }
+
+        .product-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            padding-top: 0.5rem;
+        }
+
+        .product-title {
+            color: #444;
+            font-size: 1.6rem;
+            font-weight: 400;
+            margin-bottom: 0.8rem;
+        }
+
+        .product-divider {
+            border: 0;
+            border-top: 1px dashed #ccc;
+            margin-bottom: 1.5rem;
+            width: 100%;
+        }
+
+        .btn-more {
+            background-color: #B31212;
+            color: var(--white);
+            padding: 6px 18px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-radius: 3px;
+            align-self: flex-start;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 2px 5px rgba(179, 18, 18, 0.3);
+        }
+
+        .btn-more:hover {
+            background-color: #8A0E0E;
+            transform: translateY(-2px);
+        }
+
+        /* =========================================================
+           MODAL (POPUP) STYLES
+           ========================================================= */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            padding: 2rem;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background-color: var(--white);
+            width: 100%;
+            max-width: 1100px;
+            max-height: 90vh;
+            border-radius: 8px;
+            overflow-y: auto;
+            position: relative;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.8rem;
+            color: #666;
+            cursor: pointer;
+            background: none;
+            border: none;
+            z-index: 10;
+            transition: color 0.2s;
+        }
+
+        .close-btn:hover {
+            color: #B31212;
+        }
+
+        /* Modal Layout */
+        .modal-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 2rem;
+            padding: 3rem;
+        }
+
+        .modal-left {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .modal-image {
+            width: 100%;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 0.5rem;
+        }
+
+        .modal-image img {
+            width: 100%;
+            border-radius: 4px;
+            object-fit: cover;
+        }
+
+        .modal-action-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-send-inquiry, .btn-request-call {
+            flex: 1;
+            padding: 12px;
+            text-align: center;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-send-inquiry {
+            background-color: var(--accent-green);
+            color: var(--white);
+            border: 1px solid var(--accent-green);
+        }
+
+        .btn-send-inquiry:hover {
+            background-color: #247045;
+            color: var(--white);
+        }
+
+        .btn-request-call {
+            background-color: var(--white);
+            color: var(--accent-green);
+            border: 1px solid var(--accent-green);
+        }
+
+        .btn-request-call:hover {
+            background-color: var(--bg-light);
+        }
+
+        .modal-title {
+            font-size: 1.8rem;
+            color: #000;
+            margin-bottom: 0.5rem;
+        }
+
+        .btn-get-quote {
+            display: inline-block;
+            border: 1px solid var(--accent-green);
+            color: var(--accent-green);
+            background: transparent;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            transition: background 0.2s;
+        }
+
+        .btn-get-quote:hover {
+            background: var(--bg-light);
+        }
+
+        .price-text {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-section-title {
+            font-size: 1rem;
+            text-transform: uppercase;
+            color: #000;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .modal-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 2.5rem;
+        }
+
+        .modal-table td {
+            border: 1px solid var(--border-color);
+            padding: 10px 12px;
+            font-size: 0.9rem;
+            color: #444;
+        }
+
+        .modal-table tr td:first-child {
+            width: 40%;
+            background-color: #FAFAFA;
+            font-weight: 600;
+        }
+
+        .modal-desc {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-desc ul {
+            padding-left: 20px;
+        }
+
+        /* =========================================================
+           FOOTER
+           ========================================================= */
+        footer {
+            background-color: #1A2530;
+            color: #A0B2C6;
+            padding: 4rem 2rem 2rem;
+            font-size: 0.95rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-col h4 {
+            color: var(--accent-yellow);
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col a {
+            color: #A0B2C6;
+            transition: color 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: var(--accent-green);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 3rem auto 0;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* =========================================================
+           RESPONSIVE DESIGN
+           ========================================================= */
+        @media (max-width: 900px) {
+            .modal-grid { grid-template-columns: 1fr; gap: 2rem; padding: 2rem; }
+            .modal-action-buttons { flex-direction: column; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .page-hero h1 { font-size: 2.2rem; }
+            .product-row { flex-direction: column; padding: 1rem; gap: 1rem; }
+            .product-img-wrapper { width: 100%; height: 250px; }
+            .product-title { font-size: 1.4rem; }
+            .modal-overlay { padding: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="https://5.imimg.com/data5/SELLER/Logo/2025/8/538275960/TD/DL/BB/141208881/screenshot-20221219-111611-120x120.png" alt="S. S. Industrial Services Logo">
+                S. S. Industrial Services
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="products.html" class="active">Products</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+        <h1>Our Products</h1>
+        <p>Comprehensive solutions for industrial chlorination, water treatment, and safety protocols.</p>
+    </section>
+
+    <!-- PRODUCT LIST SECTION (Populated by Javascript) -->
+    <main class="product-list-container" id="product-container">
+        <!-- Javascript will inject product cards here -->
+    </main>
+
+    <!-- THE PRODUCT MODAL (POPUP) -->
+    <div class="modal-overlay" id="productModal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal()">&times;</button>
+            
+            <div class="modal-grid">
+                <!-- Modal Left Column -->
+                <div class="modal-left">
+                    <div class="modal-image">
+                        <img id="modalImg" src="" alt="Product Image">
+                    </div>
+                    <div class="modal-action-buttons">
+                        <a href="contact.html" class="btn-send-inquiry">✉ Send Inquiry</a>
+                        <a href="contact.html" class="btn-request-call">📞 Request To Call Back</a>
+                    </div>
+                </div>
+
+                <!-- Modal Right Column -->
+                <div class="modal-right">
+                    <h2 class="modal-title" id="modalTitle">Product Title</h2>
+                    
+                    <a href="contact.html" class="btn-get-quote">Get a Price/Quote</a>
+                    
+                    <p class="price-text" id="modalPrice">Price: --</p>
+
+                    <h4 class="modal-section-title"><span id="modalTableTitle">PRODUCT</span> SPECIFICATIONS</h4>
+                    <table class="modal-table" id="modalSpecsTable">
+                        <!-- Javascript will inject table rows here -->
+                    </table>
+
+                    <h4 class="modal-section-title">ABOUT PRODUCT</h4>
+                    <div class="modal-desc" id="modalDesc">
+                        <!-- Javascript will inject description bullets here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>S. S. Industrial Services</h4>
+                <p>We are a leading distributor of Chlorine Gas, Poly Aluminium Chloride, and Industrial Chlorinators in India, established in 2021.</p>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Contact Details</h4>
+                <ul>
+                    <li>📍 Ludhiana, Punjab & Rohini, Delhi</li>
+                    <li>📞 8800119890 | 8851555150</li>
+                    <li>✉️ <a href="mailto:ssindustrial88@gmail.com">ssindustrial88@gmail.com</a></li>
+                    <li>🏢 Mon - Sat: 9:00 AM - 6:00 PM</li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 S. S. Industrial Services. All Rights Reserved. | Designed for Industrial Excellence by <a href="https://www.linkedin.com/in/nitin-pandey-a647aa320" target="_blank" rel="noopener noreferrer" style="color: var(--accent-yellow); text-decoration: none; font-weight: 600;">Nitin Pandey</a>.</p>
+        </div>
+    </footer>
+
+    <!-- PRODUCT DATA & MODAL JAVASCRIPT -->
+    <script src="products.js"></script>
+</body>
+</html>
